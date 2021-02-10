@@ -32,6 +32,8 @@ namespace FORWARD_EMAIL_API
         {
             //load the settings
             g_AppSettings = Configuration.GetSection(nameof(AppSettings)).Get<AppSettings>();
+            g_AppSettings.api_user = Configuration["api_user"];
+            g_AppSettings.DomainName = Configuration["DomainName"];
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
